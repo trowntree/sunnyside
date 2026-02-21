@@ -92,19 +92,6 @@
       left: 0;
     }
 
-      /* VIDEO BLOCK  */
-      /* #home .hero-media iframe {
-      width: 110%; /* Scale slightly larger to cover the area */
-      /* height: 110%; */
-      /* position: absolute; */
-      /* top: 50%; */
-      /* left: 50%; */
-      /* transform: translate(-50%, -50%); Center the iframe */
-      /* border: none; */
-      /* object-fit: cover; Ensure video fills container */
-    /* } */
-
-
     /* Discover Vision button */
     .btn-vision {
       background-color: rgb(81, 230, 0); /* Green */
@@ -122,7 +109,6 @@
       color: black;
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
     }
-
     .btn-contact:hover {
       background-color: rgb(44, 236, 255); /* blue */
       border-color: rgb(44, 236, 255);     /* blue border */
@@ -152,6 +138,7 @@
       z-index: 3;
       pointer-events: auto;
     }
+
     /* Loader Styles */
     .loader {
       position: absolute;
@@ -193,15 +180,14 @@
       width: 0;
       animation: typing 1.0s steps(13, end) forwards;
     }
-
     @keyframes typing {
       from { width: 0; }
       to { width: 13ch; } /* adjust for your text length */
     }
-
     @keyframes blink {
       50% { border-color: transparent; }
     }
+
     .card {
       background: #ffffff;
       border-radius: 12px;
@@ -213,30 +199,30 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
-    /* Navbar Styles */
+
+    /* Navbar Styles - Dark Theme */
     #navbar {
-      background: rgba(255, 255, 255, 0.9);
-      transition: background 0.3s ease;
+      background: #1f2937; /* Dark gray background */
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 50;
     }
 
     .header-scrolled {
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: #111827; /* Darker on scroll */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
     .nav-link {
       position: relative;
       padding: 8px 12px;
+      color: #d1d5db; /* Light gray text */
       transition: color 0.2s ease, background 0.3s ease;
-      color: rgb(31, 41, 55); /* Tailwind text-gray-800 */
     }
-
     .nav-link:hover {
-      color: rgb(81, 230, 0) !important;           /* green text on hover */
-      background: rgba(44, 236, 255, 0.0);        /* subtle blue background */
+      color: rgb(81, 230, 0) !important; /* green hover */
+      background: rgba(44, 236, 255, 0.1); /* subtle blue hover bg */
       border-radius: 4px;
     }
-
     .nav-link::after {
       content: '';
       position: absolute;
@@ -244,32 +230,43 @@
       height: 2px;
       bottom: 4px;
       left: 12px;
-      background: rgb(81, 230, 0);                 /* blue underline */
+      background: rgb(81, 230, 0); /* underline color */
       transition: width 0.3s ease;
     }
-
     .nav-link:hover::after {
       width: calc(100% - 24px);
     }
-
     .nav-link.active {
-      color: rgb(81, 230, 0) !important;          /* green active */
+      color: rgb(81, 230, 0) !important; /* green active */
       font-weight: 700;
     }
-
-    .nav-link:focus {
-      outline: none;
-      box-shadow: none;
+    #menu-toggle svg {
+      color: #d1d5db;
+    }
+    #menu-toggle svg:hover {
+      color: rgb(81, 230, 0);
     }
     #mobile-menu {
+      background: #1f2937; /* dark gray */
+      color: #f9f9f9;
       transition: transform 0.3s ease, opacity 0.3s ease;
       transform: translateY(-10px);
       opacity: 0;
+      z-index: 40;
     }
     #mobile-menu.open {
       transform: translateY(0);
       opacity: 1;
     }
+    #mobile-menu .nav-link {
+      color: #d1d5db;
+    }
+    #mobile-menu .nav-link:hover {
+      color: rgb(81, 230, 0);
+      background: rgba(44, 236, 255, 0.1);
+      border-radius: 4px;
+    }
+
     @media (max-width: 768px) {
       .nav-link { padding: 10px 16px; }
       .container { padding-left: 1rem; padding-right: 1rem; }
@@ -284,9 +281,6 @@
         max-width: 90%;
         margin: 0 auto;
       }
-      /* #home h1 {
-        font-size: 2rem;
-      } */
       #home p {
         font-size: 1.25rem;
         max-width: 90%;
@@ -309,7 +303,7 @@
         font-size: 1rem;
       }
       #home .hero-media iframe {
-        width: 500%; /* Increased to ensure full-screen coverage */
+        width: 500%;
         height: 500%;
         object-fit: cover;
         position: absolute;
@@ -317,29 +311,13 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      .card {
-        padding: 1.25rem;
-      }
+      .card { padding: 1.25rem; }
     }
     @media (max-width: 640px) {
-      .typed-text {
-        font-size: 1.75rem;
-        line-height: 1.4;
-      }
-      /* #home h1 {
-        font-size: 1.75rem;
-      } */
-      #home p {
-        font-size: 1rem;
-      }
-      #home .hero-content {
-        padding: 0.75rem;
-      }
-      #home .flex a {
-        width: 100%;
-        min-width: 240px;
-        padding: 0.75rem 1rem;
-      }
+      .typed-text { font-size: 1.75rem; line-height: 1.4; }
+      #home p { font-size: 1rem; }
+      #home .hero-content { padding: 0.75rem; }
+      #home .flex a { width: 100%; min-width: 240px; padding: 0.75rem 1rem; }
     }
 
     /* Logo section styles */
@@ -381,60 +359,51 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     @media (max-width: 768px) {
-      .logo-item {
-        width: 150px;
-        height: 80px;
-        margin: 0 10px;
-      }
+      .logo-item { width: 150px; height: 80px; margin: 0 10px; }
     }
 </style>
 </head>
+
 <body class="bg-white text-gray-900">
-  <header id="navbar" class="fixed w-full z-20 transition-all duration-300" role="banner">
+  <header id="navbar" class="fixed w-full transition-all duration-300" role="banner">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
       <div class="flex items-center">
         <a href="#home" class="flex items-center space-x-2">
-          <!-- <img src="images/logoS.png" alt="Solvaris Logo" class="logo" style="width: 150px; height: auto;"> -->
           <img src="images/Africa_images/TR_Blue_Green.png" alt="SunnySide" class="logo" style="width: 150px; height: auto;">
         </a>
       </div>
       <nav class="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
-        <a href="#home" class="nav-link text-gray-800 font-medium transition-colors duration-200">Home</a>
-        <a href="#about" class="nav-link text-gray-800 font-medium transition-colors duration-200">About</a>
-        <a href="#expertise" class="nav-link text-gray-800 font-medium transition-colors duration-200">Expertise</a>
-        <a href="#articles" class="nav-link text-gray-800 font-medium transition-colors duration-200">Articles</a>
-        <a href="#gallery" class="nav-link text-gray-800 font-medium transition-colors duration-200">Gallery</a>
-        <!-- <a href="#careers" class="nav-link text-gray-800 font-medium transition-colors duration-200">Careers</a> -->
-        <a href="#contact" class="nav-link text-gray-800 font-medium transition-colors duration-200">Contact</a>
+        <a href="#home" class="nav-link font-medium">Home</a>
+        <a href="#about" class="nav-link font-medium">About</a>
+        <a href="#expertise" class="nav-link font-medium">Expertise</a>
+        <a href="#articles" class="nav-link font-medium">Articles</a>
+        <a href="#gallery" class="nav-link font-medium">Gallery</a>
+        <a href="#contact" class="nav-link font-medium">Contact</a>
       </nav>
-      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 rounded" aria-label="Toggle menu" aria-expanded="false">
-        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <button id="menu-toggle" class="md:hidden focus:outline-none rounded" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
-        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <nav class="flex flex-col p-4 space-y-4" role="navigation" aria-label="Mobile navigation">
-        <a href="#home" class="nav-link text-gray-800 font-medium" tabindex="0">Home</a>
-        <a href="#about" class="nav-link text-gray-800 font-medium" tabindex="0">About</a>
-        <a href="#expertise" class="nav-link text-gray-800 font-medium" tabindex="0">Expertise</a>
-        <a href="#articles" class="nav-link text-gray-800 font-medium" tabindex="0">Articles</a>
-        <a href="#gallery" class="nav-link text-gray-800 font-medium" tabindex="0">Gallery</a>
-        <!-- <a href="#careers" class="nav-link text-gray-800 font-medium" tabindex="0">Careers</a> -->
-        <a href="#contact" class="nav-link text-gray-800 font-medium" tabindex="0">Contact</a>
-      </nav>
-    </div>
+
+  <div id="mobile-menu" class="hidden md:hidden">
+    <nav class="flex flex-col p-4 space-y-4" role="navigation" aria-label="Mobile navigation">
+      <a href="#home" class="nav-link font-medium">Home</a>
+      <a href="#about" class="nav-link font-medium">About</a>
+      <a href="#expertise" class="nav-link font-medium">Expertise</a>
+      <a href="#articles" class="nav-link font-medium">Articles</a>
+      <a href="#gallery" class="nav-link font-medium">Gallery</a>
+      <a href="#contact" class="nav-link font-medium">Contact</a>
+    </nav>
+  </div>
   </header>
 
 
