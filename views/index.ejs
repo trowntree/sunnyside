@@ -1,0 +1,1167 @@
+<!-- Main code for website: timonrowntree.com -->
+<!-- Last edited: 13 December 2025 -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+
+
+<!-- ---------------------------------------- INITIATION -------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/images/Africa_images/TR%20Symbol_Lime_blue.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Timon Rowntree">
+  <meta name="keywords" content="solar mini-grids, solar, mini-grids, mini grids, consultant, expert, Africa, emerging markets, renewable energy, energy access, off-grid solar, microgrids, sustainable energy, Timon Rowntree, Timon, Rowntree">
+  <meta name="author" content="Timon Rowntree">
+  
+  <title>Timon Rowntree - Renewable Energy for Emerging Markets</title>
+  
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:title" content="Timon Rowntree - Renewable Energy for Emerging Markets" />
+  <meta property="og:description" content="Shaping a sustainable energy future through scalable, inclusive, and impactful renewable energy." />
+  <meta property="og:image" content="https://timonrowntree.com/images/Africa_images/TR%20Symbol_Lime_blue.png" />
+  <meta property="og:url" content="https://timonrowntree.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Timon Rowntree - Renewable Energy for Emerging Markets" />
+  <meta name="twitter:description" content="Shaping a sustainable energy future through scalable, inclusive, and impactful renewable energy." />
+  <meta name="twitter:image" content="https://timonrowntree.com/images/Africa_images/TR%20Symbol_Lime_blue.png" />
+
+  <!-- JSON-LD Structured Data for Google Logo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Timon Rowntree",
+    "url": "https://timonrowntree.com",
+    "logo": "https://timonrowntree.com/images/Africa_images/TR%20Symbol_Lime_blue.png"
+  }
+  </script>
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+  <!-- ---------------------------------------- STYLE -------------------------------------------------- -->
+  
+  <style>
+    :root {
+      --font-text: 300;   /* default text weight */
+      --font-header: 100; /* default header weight */
+    }
+
+    body {
+      font-family: 'Sofia Sans', sans-serif;
+      font-weight: var(--font-text); /* all text uses this by default */
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: var(--font-header); /* headers use this weight */
+      line-height: 1.2;
+    }
+
+    #home {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    #home .hero-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Clip any overflow from the scaled iframe */
+      z-index: 1;
+    }
+    #home .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+      /* VIDEO BLOCK  */
+      /* #home .hero-media iframe {
+      width: 110%; /* Scale slightly larger to cover the area */
+      /* height: 110%; */
+      /* position: absolute; */
+      /* top: 50%; */
+      /* left: 50%; */
+      /* transform: translate(-50%, -50%); Center the iframe */
+      /* border: none; */
+      /* object-fit: cover; Ensure video fills container */
+    /* } */
+
+
+    /* Discover Vision button */
+    .btn-vision {
+      background-color: rgb(81, 230, 0); /* Green */
+      color: black;
+      transition: background-color 0.2s;
+    }
+    .btn-vision:hover {
+      background-color: rgb(44, 236, 255); /* Blue on hover */
+    }
+
+    /* Get in Touch button */
+    .btn-contact {
+      background-color: transparent;
+      border: 2px solid rgb(81, 230, 0); /* green */
+      color: black;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-contact:hover {
+      background-color: rgb(44, 236, 255); /* blue */
+      border-color: rgb(44, 236, 255);     /* blue border */
+      color: black;
+    }
+
+    #home .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.00); /* Faded dark black */
+      z-index: 2;
+      pointer-events: none;
+    }
+    #home .hero-content {
+      position: relative;
+      z-index: 4;
+      pointer-events: auto;
+      width: 100%; /* Ensure content takes full width */
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      pointer-events: auto;
+    }
+    /* Loader Styles */
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      animation: fadeOut 3s forwards;
+    }
+    .loader::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 4px solid #10b981;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    .typed-text {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      line-height: 1.2;
+      width: 0;
+      animation: typing 1.0s steps(13, end) forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 13ch; } /* adjust for your text length */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    /* Navbar Styles */
+    #navbar {
+      background: rgba(255, 255, 255, 0.9);
+      transition: background 0.3s ease;
+    }
+
+    .header-scrolled {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 8px 12px;
+      transition: color 0.2s ease, background 0.3s ease;
+      color: rgb(31, 41, 55); /* Tailwind text-gray-800 */
+    }
+
+    .nav-link:hover {
+      color: rgb(81, 230, 0) !important;           /* green text on hover */
+      background: rgba(44, 236, 255, 0.0);        /* subtle blue background */
+      border-radius: 4px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 4px;
+      left: 12px;
+      background: rgb(81, 230, 0);                 /* blue underline */
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: calc(100% - 24px);
+    }
+
+    .nav-link.active {
+      color: rgb(81, 230, 0) !important;          /* green active */
+      font-weight: 700;
+    }
+
+    .nav-link:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    #mobile-menu {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    #mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .nav-link { padding: 10px 16px; }
+      .container { padding-left: 1rem; padding-right: 1rem; }
+      #home .hero-content {
+        padding: 1rem;
+        text-align: center;
+      }
+      .typed-text {
+        font-size: 2rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      /* #home h1 {
+        font-size: 2rem;
+      } */
+      #home p {
+        font-size: 1.25rem;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #home .flex {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+      #home .flex a {
+        width: 280px;
+        min-width: 280px;
+        padding: 0.75rem 1rem;
+        margin: 0 auto;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 1rem;
+      }
+      #home .hero-media iframe {
+        width: 500%; /* Increased to ensure full-screen coverage */
+        height: 500%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .card {
+        padding: 1.25rem;
+      }
+    }
+    @media (max-width: 640px) {
+      .typed-text {
+        font-size: 1.75rem;
+        line-height: 1.4;
+      }
+      /* #home h1 {
+        font-size: 1.75rem;
+      } */
+      #home p {
+        font-size: 1rem;
+      }
+      #home .hero-content {
+        padding: 0.75rem;
+      }
+      #home .flex a {
+        width: 100%;
+        min-width: 240px;
+        padding: 0.75rem 1rem;
+      }
+    }
+
+    /* Logo section styles */
+    .logo-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    .logo-carousel::before,
+    .logo-carousel::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+    }
+    .logo-carousel::before {
+      left: 0;
+      background: linear-gradient(to right, white, transparent);
+    }
+    .logo-carousel::after {
+      right: 0;
+      background: linear-gradient(to left, white, transparent);
+    }
+    .logos {
+      display: flex;
+      animation: scroll-left 30s linear infinite;
+    }
+    .logo-item {
+      flex: 0 0 auto;
+      width: 200px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    @media (max-width: 768px) {
+      .logo-item {
+        width: 150px;
+        height: 80px;
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  <header id="navbar" class="fixed w-full z-20 transition-all duration-300" role="banner">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center">
+        <a href="#home" class="flex items-center space-x-2">
+          <!-- <img src="images/logoS.png" alt="Solvaris Logo" class="logo" style="width: 150px; height: auto;"> -->
+          <img src="images/Africa_images/TR_Blue_Green.png" alt="Timon Rowntree" class="logo" style="width: 150px; height: auto;">
+        </a>
+      </div>
+      <nav class="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
+        <a href="#home" class="nav-link text-gray-800 font-medium transition-colors duration-200">Home</a>
+        <a href="#about" class="nav-link text-gray-800 font-medium transition-colors duration-200">About</a>
+        <a href="#expertise" class="nav-link text-gray-800 font-medium transition-colors duration-200">Expertise</a>
+        <a href="#articles" class="nav-link text-gray-800 font-medium transition-colors duration-200">Articles</a>
+        <a href="#gallery" class="nav-link text-gray-800 font-medium transition-colors duration-200">Gallery</a>
+        <!-- <a href="#careers" class="nav-link text-gray-800 font-medium transition-colors duration-200">Careers</a> -->
+        <a href="#contact" class="nav-link text-gray-800 font-medium transition-colors duration-200">Contact</a>
+      </nav>
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 rounded" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <nav class="flex flex-col p-4 space-y-4" role="navigation" aria-label="Mobile navigation">
+        <a href="#home" class="nav-link text-gray-800 font-medium" tabindex="0">Home</a>
+        <a href="#about" class="nav-link text-gray-800 font-medium" tabindex="0">About</a>
+        <a href="#expertise" class="nav-link text-gray-800 font-medium" tabindex="0">Expertise</a>
+        <a href="#articles" class="nav-link text-gray-800 font-medium" tabindex="0">Articles</a>
+        <a href="#gallery" class="nav-link text-gray-800 font-medium" tabindex="0">Gallery</a>
+        <!-- <a href="#careers" class="nav-link text-gray-800 font-medium" tabindex="0">Careers</a> -->
+        <a href="#contact" class="nav-link text-gray-800 font-medium" tabindex="0">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- VIDEO BLOCK-->
+  <!-- <section id="home">
+    <div class="hero-media">
+      <iframe 
+          src="https://player.vimeo.com/video/1006636061?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture" 
+          allowfullscreen
+      ></iframe>
+    </div>
+    <div class="loader"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container mx-auto px-6 text-left text-white">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4">
+        <span class="typed-text">Timon Rowntree</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl" data-aos="fade-up" data-aos-delay="300">Some interesting text here - A </p>
+      <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 items-center" data-aos="fade-up" data-aos-delay="500">
+        <a href="#vision" class="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 w-full sm:w-auto text-center">Discover Our Vision</a>
+        <a href="#contact" class="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:text-green-800 transition-colors duration-200 w-full sm:w-auto text-center">Get in Touch</a>
+      </div>
+    </div>
+  </section> -->
+
+
+<!-- --------------------------------- BLOCK 1 : OPENING IMAGE & TEXT  ------------------------------------ -->
+ 
+
+<section id="home">
+
+  <div class="hero-media">
+    <picture>
+      <!-- Mobile image -->
+      <source 
+        srcset="images/Africa_images/Logo14_mobile.jpg"
+        media="(max-width: 768px)"
+      />
+
+      <!-- Desktop image -->
+      <img 
+        src="images/Africa_images/Logo14.jpg"
+        alt="Hero background"
+        class="hero-image"
+      />
+    </picture>
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content container mx-auto px-6 text-left text-black">
+    <h1 class="text-5xl md:text-6xl leading-tight mb-0">
+      <span class="typed-text">Timon Rowntree</span>
+    </h1>
+
+    <p class="text-xl md:text-2xl -mt-4 mb-8 max-w-2xl ml-2">
+      Renewable Energy for Emerging Markets
+    </p>
+
+    <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 items-center">
+      <a href="#expertise"
+        class="px-8 py-3 rounded-lg w-full sm:w-auto text-center btn-vision">
+        Discover Expertise
+      </a>
+
+      <a href="#contact"
+        class="px-8 py-3 rounded-lg w-full sm:w-auto text-center btn-contact">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- -----------------------  BLOCK 2 : ABOUT ME  ------------------------------- -->
+
+
+<section id="about" class="bg-gray-50 py-20 px-6">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <h2 class="text-4xl mb-6" style="color: rgb(81, 230, 0);">
+          About me
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          I am a renewable energy professional dedicated to building practical, long-term solutions that provide reliable power in emerging markets. My work combines on-the-ground project experience with strategic insight, ensuring energy systems are sustainable and scalable over time.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          I have delivered a wide range of projects across Africa, with a focus on solar and hybrid mini-grids in Nigeria, Sierra Leone, Liberia and Benin. I have also led various innovative projects in Europe, touching both the renewable energy and electric mobility sectors. I hold a degree in Aerospace Engineering (MSc) from Delft University of Technology in The Netherlands.  
+        </p>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="200">
+        <img src="images/solvaris-team.jpg" alt="Solvaris Team" class="w-full rounded-lg shadow-lg">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- -----------------------  BLOCK X : LOGO CAROUSEL  ------------------------------- -->
+
+
+  <!-- <section class="bg-white py-12 px-6">
+    <div class="container mx-auto">
+      <div class="logo-carousel">
+        <div class="logos flex" style="width: 200%;">
+          <div class="logo-item"><img src="images/logo1.png" alt="Logo 1" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo2.png" alt="Logo 2" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo3.png" alt="Logo 3" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo4.png" alt="Logo 4" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo5.png" alt="Logo 5" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo6.png" alt="Logo 6" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo7.png" alt="Logo 7" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo8.png" alt="Logo 8" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo1.png" alt="Logo 1" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo2.png" alt="Logo 2" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo3.png" alt="Logo 3" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo4.png" alt="Logo 4" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo5.png" alt="Logo 5" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo6.png" alt="Logo 6" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo7.png" alt="Logo 7" class="max-h-full max-w-full"></div>
+          <div class="logo-item"><img src="images/logo8.png" alt="Logo 8" class="max-h-full max-w-full"></div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+<!-- -----------------------  BLOCK 4 : EXPERTISE  ------------------------------- -->
+
+<section id="expertise" class="bg-white py-20 px-6">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl mb-12" style="color: rgb(81, 230, 0);" data-aos="fade-up">
+      Expertise
+    </h2>
+
+    <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Delivering practical skills and capabilities to develop, implement, and optimise renewable energy solutions.
+    </p>
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- COLUMN 1 -->
+      <div class="flex flex-col gap-8">
+        <div class="card" style="background-color: rgb(81, 230, 0);" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-2xl mb-3 text-black">Solar Mini-Grids</h3>
+          <p class="text-gray-600 mb-4">
+            Regulatory frameworks, system design, and operational strategy to deliver power to communities & businesses.
+          </p>
+        </div>
+
+        <img
+          src="images/Africa_images/IMG_4437.jpeg"
+          alt="Solar Mini-Grids"
+          class="w-full h-60 object-cover rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+      </div>
+
+      <!-- COLUMN 2 -->
+      <div class="flex flex-col gap-8">
+        <div class="card" style="background-color: rgb(81, 230, 0);" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl mb-3 text-black">Energy Intelligence</h3>
+          <p class="text-gray-600 mb-4">
+            Advanced data and analytics to understand energy systems and support smarter, more efficient decision-making.
+          </p>
+        </div>
+
+        <img
+          src="images/Africa_images/DSCF0678.JPG"
+          alt="Energy Intelligence"
+          class="w-full h-60 object-cover rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+      </div>
+
+      <!-- COLUMN 3 -->
+      <div class="flex flex-col gap-8">
+        <div class="card" style="background-color: rgb(81, 230, 0);" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-2xl mb-3 text-black">Project Development</h3>
+          <p class="text-gray-600 mb-4">
+            Developing renewable energy projects from conception into operations, ensuring they are viable and scalable.
+          </p>
+        </div>
+
+        <img
+          src="images/renewable-energy-landscape.jpg"
+          alt="Project Development"
+          class="w-full h-60 object-cover rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- -----------------------  BLOCK 5 : ARTICLES  ------------------------------- -->
+
+<section id="articles" class="bg-gray-50 py-20 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-4xl text-center mb-6" style="color: rgb(81, 230, 0);" data-aos="fade-up">
+      Articles
+    </h2>
+
+    <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Sharing my perspectives on topics related to distributed renewable energy.
+    </p>
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- COLUMN 1 -->
+      <div class="flex flex-col gap-8">
+        <div class="card" data-aos="fade-up">
+          <a
+            href="/heatmaps"
+            class="hover:underline decoration-[rgb(81,230,0)] underline-offset-4"
+          >
+            <h3 class="text-2xl mb-3" style="color: rgb(81, 230, 0);">
+              Heatmaps – Visualising Mini-Grid Portfolio Performance
+            </h3>
+          </a>
+
+          <p class="text-gray-600 mb-4">
+            An intuitive framework for turning operational mini-grid data into action.
+          </p>
+
+          <div class="flex justify-between items-center">
+            <a href="/heatmaps" class="font-medium hover:underline text-gray-800">
+              Read full article →
+            </a>
+            <span class="text-sm font-medium" style="color: rgb(81,230,0);">Jan 2026</span>
+          </div>
+        </div>
+
+        <img
+          src="/images/Thumbnail_8.png"
+          alt="Heatmaps"
+          class="w-full h-60 object-cover rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+      </div>
+
+      <!-- COLUMN 2 -->
+      <div class="flex flex-col gap-8">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <a
+            href="/article_capacity_utilisation"
+            class="hover:underline decoration-[rgb(81,230,0)] underline-offset-4"
+          >
+            <h3 class="text-2xl mb-3" style="color: rgb(81, 230, 0);">
+              Capacity Utilisation in Distributed Energy Systems
+            </h3>
+          </a>
+
+          <p class="text-gray-600 mb-4">
+            Exploring capacity utilisation as the all-encompassing metric for system performance.
+          </p>
+
+          <div class="flex justify-between items-center">
+            <a href="/article_capacity_utilisation" class="font-medium hover:underline text-gray-800">
+              Read full article →
+            </a>
+            <span class="text-sm font-medium" style="color: rgb(81,230,0);">Jan 2026</span>
+          </div>
+        </div>
+
+        <img
+          src="/images/hernen-solar.jpg"
+          alt="Capacity Utilisation"
+          class="w-full h-60 object-cover rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+      </div>
+
+      <!-- COLUMN 3 -->
+      <div class="flex flex-col gap-8">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <a
+            href="/article_ai"
+            class="hover:underline decoration-[rgb(81,230,0)] underline-offset-4"
+          >
+            <h3 class="text-2xl mb-3" style="color: rgb(81, 230, 0);">
+              AI for Energy Utilities – Opportunities and Applications
+            </h3>
+          </a>
+
+          <p class="text-gray-600 mb-4">
+            Exploring opportunities for artificial intelligence in energy utilities.
+          </p>
+
+          <div class="flex justify-between items-center">
+            <a href="/article_ai" class="font-medium hover:underline text-gray-800">
+              Read full article →
+            </a>
+            <span class="text-sm font-medium" style="color: rgb(81,230,0);">Jan 2026</span>
+          </div>
+        </div>
+
+        <img
+          src="/images/Africa_images/girl.png"
+          alt="Artificial Intelligence"
+          class="w-full h-60 object-cover rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- -----------------------  BLOCK 6 : GALLERY  ------------------------------- -->
+
+<section id="gallery" class="bg-white py-20 px-6">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Text on the left -->
+      <div data-aos="fade-right">
+        <h2 class="text-4xl mb-6" style="color: rgb(81, 230, 0);">
+          Gallery
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          My work has taken me to some beautiful places and allowed me to meet incredible people. I have captured a few of my favourite moments along the way and collected them in a photo gallery - take a look!  
+        </p>
+
+        <!-- View Gallery Button -->
+        <a href="/gallery"
+           class="w-full sm:w-auto px-8 py-3 rounded-lg text-center text-gray-800 transition-colors duration-200"
+           style="background-color: rgb(81, 230, 0);"
+           onmouseover="this.style.backgroundColor='rgb(44, 236, 255)'" 
+           onmouseout="this.style.backgroundColor='rgb(81, 230, 0)'">
+          View Photo Gallery
+        </a>
+      </div>
+
+      <!-- Image on the right -->
+      <div data-aos="fade-left" data-aos-delay="200">
+        <img src="images/Africa_images/IMG_3084.jpeg" alt="Solvaris Team" class="w-full rounded-lg shadow-lg">
+      </div>
+
+      <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card" style="background-color: rgb(81, 230, 0);" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-2xl mb-3 text-black">Project Development</h3>
+          <p class="text-gray-600 mb-4">Developing renewable energy projects from conception into operations, ensuring they are viable and scalable.</p>
+        </div>
+          <div class="card" style="background-color: rgb(81, 230, 0);" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl mb-3 text-black">Energy Intelligence</h3>
+          <p class="text-gray-600 mb-4">Advanced data and analytics to understand energy systems and support smarter, more efficient decision-making.</p>
+        </div>
+          <div class="card" style="background-color: rgb(81, 230, 0);" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl mb-3 text-black">Innovation</h3>
+          <p class="text-gray-600 mb-4">Leveraging cutting-edge technology to create the energy systems of the future </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <img src="images/renewable-energy-landscape.jpg" alt="Project Development" class="w-full h-60 object-cover rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+        <img src="images/Africa_images/DSCF0678.JPG" alt="Energy Intelligence" class="w-full h-60 object-cover rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+        <img src="images/rheincore.jpg" alt="Innovation" class="w-full h-60 object-cover rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="500">
+      </div> -->
+    </div>
+  </section>
+
+
+  <!-- <section id="gallery" class="container mx-auto py-20 px-6">
+  <h2 class="text-4xl text-center mb-12" style="color: rgb(81, 230, 0);" data-aos="fade-up">Gallery</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card" data-aos="fade-up">
+      <p class="font-semibold text-sm mb-2" style="color: rgb(81, 230, 0);">December 2025</p>
+      <h3 class="text-xl mb-3">Coming Soon</h3>
+      <p class="text-gray-600 mb-4">A new website gallery is coming soon</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <p class="font-semibold text-sm mb-2" style="color: rgb(81, 230, 0);">December 2025</p>
+      <h3 class="text-xl mb-3">Branding Live</h3>
+      <p class="text-gray-600 mb-4">Introducing a fresh new look!</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <p class="font-semibold text-sm mb-2" style="color: rgb(81, 230, 0);">May 2025</p>
+      <h3 class="text-xl font-semibold mb-3">Strategic Partnership Development</h3>
+      <p class="text-gray-600 mb-4">Solvaris begins forming alliances with global technology providers to support our upcoming renewable energy projects.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <p class="font-semibold text-sm mb-2" style="color: rgb(81, 230, 0);">December 2024</p>
+      <h3 class="text-xl font-semibold mb-3">Industry Engagement</h3>
+      <p class="text-gray-600 mb-4">Solvaris joins renewable energy associations to stay at the forefront of industry innovation and collaboration.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="400">
+      <p class="font-semibold text-sm mb-2" style="color: rgb(81, 230, 0);">July 2024</p>
+      <h3 class="text-xl font-semibold mb-3">Market Analysis Completed</h3>
+      <p class="text-gray-600 mb-4">Solvaris completes comprehensive market studies to identify key opportunities for renewable energy development.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="500">
+      <p class="font-semibold text-sm mb-2" style="color: rgb(81, 230, 0);">January 2024</p>
+      <h3 class="text-xl font-semibold mb-3">Solvaris Founded</h3>
+      <p class="text-gray-600 mb-4">Solvaris is established in Amsterdam with a mission to lead the renewable energy revolution.</p>
+    </div>
+  </div>
+</section> -->
+
+
+  <!-- <section id="careers" class="bg-gray-50 py-20 px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-12" data-aos="fade-up">Join Our Team</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">Join our passionate team to shape the future of renewable energy and microgrid solutions.</p>
+      <a href="/careers" class="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200" data-aos="fade-up" data-aos-delay="400">View Open Positions</a>
+    </div>
+  </section> -->
+
+
+
+
+<!-- -----------------------  BLOCK 7 : CONTACT BOX  ------------------------------- -->
+
+
+  <section id="contact" class="bg-gray-50 py-20 px-6">
+    <div class="container mx-auto">
+      <h2 class="text-4xl text-center mb-12" style="color: rgb(81, 230, 0);" data-aos="fade-up">
+        Let's Connect!
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      
+      <div class="card" data-aos="fade-right">
+        <h3 class="text-2xl mb-6">Message Me</h3>
+        <div class="space-y-6">
+          
+          <div>
+            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+            <input type="text" id="name" class="w-full border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-green-400" placeholder="Your Name" required>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" id="email" class="w-full border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-green-400" placeholder="Your Email" required>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+            <textarea id="message" class="w-full border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-green-400" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          
+          <button type="button" onclick="submitFormTimon()" class="w-full text-gray-800 py-3 rounded-lg transition-colors duration-200"
+                  style="background-color: rgb(81, 230, 0);"
+                  onmouseover="this.style.backgroundColor='rgb(44, 236, 255)'" 
+                  onmouseout="this.style.backgroundColor='rgb(81, 230, 0)'">
+            Submit
+          </button>
+          
+        </div>
+      </div>
+      
+      <div data-aos="fade-left">
+        <h3 class="text-2xl mb-6">Get in Touch</h3>
+        <p class="text-gray-600 mb-4">I love meeting new people and exploring ideas or opportunities to collaborate - feel free to reach out.</p>
+        
+        <div class="space-y-4">
+          <p><strong>Email:</strong> <a href="mailto:timon@rowntree.nl" style="color: rgb(81, 230, 0);" class="hover:underline">timon@rowntree.nl</a></p>
+          <p>
+            <strong>Address</strong><br>
+            Martinus Houttuynhof<br>
+            2341 PR Oegstgeest<br>
+            Zuid-Holland <br>
+            The Netherlands
+          </p>
+        </div>
+        
+      <div class="mt-4">
+        <strong>Get in touch via WhatsApp</strong><br>
+        <div class="flex space-x-4">
+          <a href="https://wa.me/31623081322" target="_blank"
+            style="color: rgb(81,230,0); transition: color 0.2s;"
+            onmouseover="this.style.color='rgb(44,236,255)'" 
+            onmouseout="this.style.color='rgb(81,230,0)'">
+            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.868-2.031-.968-.273-.099-.472-.149-.671.149-.198.297-.768.968-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.297.298-.495.099-.198.05-.372-.025-.52-.074-.149-.671-1.611-.918-2.206-.242-.579-.487-.5-.671-.51l-.573-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.488 1.693.625.711.227 1.36.195 1.87.118.571-.085 1.758-.718 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <strong>Connect on LinkedIn</strong><br>
+        <div class="flex space-x-4">
+          <a href="https://www.linkedin.com/in/timon-rowntree-38487a176/" target="_blank"
+            style="color: rgb(81,230,0); transition: color 0.2s;"
+            onmouseover="this.style.color='rgb(44,236,255)'" 
+            onmouseout="this.style.color='rgb(81,230,0)'">
+            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+<!-- -----------------------  BLOCK 8 : WEBSITE FOOTER  ------------------------------- -->
+
+  <footer class="bg-gray-900 text-white py-12 px-6">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+      
+    <div class="flex items-start justify-center mt-1 -ml-12">
+      <img src="images/Africa_images/TR%20Symbol_Lime_blue.png" 
+          alt="Timon Rowntree Logo" 
+          style="height: 130px; width: auto;">
+    </div>
+
+      <!-- <div>
+        <h3 class="text-xl mb-4" style="color: rgb(44, 236, 255);">Timon Rowntree</h3>
+        <p class="text-gray-400">Renewable Energy for Emerging Markets</p>
+      </div> -->
+      
+      <div>
+        <h3 class="text-xl mb-4" style="color: rgb(44, 236, 255);">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#home" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Home</a></li>
+          <li><a href="#about" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">About</a></li>
+          <li><a href="#expertise" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Expertise</a></li>
+          <li><a href="#articles" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Articles</a></li>
+          <li><a href="#gallery" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Gallery</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl mb-4" style="color: rgb(44, 236, 255);">Resources</h3>
+        <ul class="space-y-2">
+          <li><a href="#gallery" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Gallery</a></li>
+          <!-- <li><a href="#careers" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">Careers</a></li> -->
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xl mb-4" style="color: rgb(44, 236, 255);">Contact Info</h3>
+        <ul class="space-y-2">
+          <li><a href="mailto:timon@rowntree.nl" class="text-gray-400 hover:text-[rgb(81,230,0)] transition-colors duration-200">timon@rowntree.nl</a></li>
+          <li class="text-gray-400">
+            Martinus Houttuynhof<br>
+            2341 PR Oegstgeest<br>
+            Zuid-Holland<br>
+            The Netherlands 
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="container mx-auto mt-12 text-center">
+      <p class="text-gray-400">© 2025 Timon Rowntree. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+<!-- ----------------------- FLOATING BACK TO TOP BUTTON ------------------------------- -->
+<button id="backToTop"
+        class="fixed bottom-8 right-8 z-50 px-6 py-3 rounded-lg text-gray-800 shadow-lg opacity-0 transition-opacity duration-700"
+        style="background-color: rgb(81, 230, 0);"
+        onmouseover="this.style.backgroundColor='rgb(44, 236, 255)'" 
+        onmouseout="this.style.backgroundColor='rgb(81, 230, 0)'"
+        aria-label="Back to top">
+  Back to Top
+</button>
+
+<script>
+  const backToTop = document.getElementById('backToTop');
+  const footer = document.querySelector('footer');
+
+  window.addEventListener('scroll', () => {
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    // Show button when footer enters viewport
+    if (footerTop < windowHeight) {
+      backToTop.classList.remove('opacity-0');  // fade in
+      backToTop.classList.add('opacity-100');
+    } else {
+      backToTop.classList.remove('opacity-100');
+      backToTop.classList.add('opacity-0');     // fade out
+    }
+  });
+
+  // Smooth scroll to top
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+
+  <!-- ----------------------- EMAILJS ----------------------- -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/js/main.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("7X1ttYN6eM5BIvr3Q"); // Replace with your EmailJS Public Key
+  </script>
+
+
+  <script>
+    function submitFormTimon() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if(!name || !email || !message){
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const button = document.querySelector("button[onclick='submitFormTimon()']");
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      emailjs.send("mijndomein", "template_8kariuu", {
+        name: name,
+        email: email,
+        message: message
+      })
+      .then(() => {
+        button.disabled = false;
+        button.textContent = "Submit";
+        alert("Thank you for your message, I will get in touch with you shortly!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+      })
+      .catch((error) => {
+        button.disabled = false;
+        button.textContent = "Submit";
+        console.error(error);
+        alert("Something went wrong. Please try again.");
+      });
+    }
+  </script>
+
+  <!-- Making the mobile version menu work  -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+
+      // Toggle menu visibility
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('open');
+
+      // Toggle icons
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+
+      // Accessibility
+      toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <script>
+    // Smooth scroll for links within the same page
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          window.scrollTo({
+            top: target.offsetTop - 60, // adjust for navbar height
+            behavior: 'smooth'
+          });
+          // Update the URL hash without jumping
+          history.pushState(null, null, this.getAttribute('href'));
+        }
+      });
+    });
+
+    // Smooth scroll when page loads with a hash (from another page)
+    window.addEventListener('load', () => {
+      if(window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if(target) {
+          // Start at top to prevent instant jump
+          window.scrollTo(0, 0);
+
+          // Small delay to let page render
+          setTimeout(() => {
+            window.scrollTo({
+              top: target.offsetTop - 60, // adjust for navbar
+              behavior: 'smooth'
+            });
+          }, 50);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+<!-- -----------------------  END OF WEBPAGE  ------------------------------- -->
+
