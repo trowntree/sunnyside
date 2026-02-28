@@ -495,13 +495,7 @@
         alt="SunnySide Team" 
         class="w-full rounded-3xl shadow-2xl object-cover h-[480px]"
       >
-      
-      <!-- Experience Badge -->
-      <!-- <div class="absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4 bg-green-500 text-white rounded-3xl px-8 py-5 shadow-xl text-center">
-        <div class="text-2xl md:text-3xl font-extrabold">10+</div>
-        <div class="text-sm md:text-base font-medium opacity-90">Years Combined Experience</div>
-      </div>
-    </div> -->
+    </div>
 
     <!-- Text Card -->
     <div class="relative z-10">
@@ -523,7 +517,6 @@
 
   </div>
 </section>
-
 
 
 <!-- -----------------------  BLOCK X : LOGO CAROUSEL  ------------------------------- -->
@@ -558,8 +551,9 @@
 
 <!-- -----------------------  BLOCK 4 : EXPERTISE  ------------------------------- -->
 
+
 <section id="expertise" class="bg-gray-900 py-24 px-6 relative overflow-hidden">
-  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-start">
 
     <!-- LEFT: Expertise Cards -->
     <div class="flex flex-col gap-8" data-aos="fade-right">
@@ -585,7 +579,7 @@
           </p>
         </div>
 
-        <div class="bg-gray-800 bg-opacity-80 p-6 rounded-3xl shadow-xl hover:shadow-2xl transition duration-500">
+        <div class="bg-gray-800 bg-opacity-80 p-6 rounded-3xl shadow-xl hover:shadow-2xl transition duration-500 relative z-10">
           <h3 class="text-2xl font-semibold text-green-400 mb-2">Sustainable Technology Integration</h3>
           <p class="text-gray-300">
             Implementing cutting-edge renewable technologies, from solar panels to battery storage and smart energy management systems.
@@ -594,13 +588,15 @@
       </div>
     </div>
 
-    <!-- RIGHT: Larger Image -->
+    <!-- RIGHT: Image aligned with bottom of last card -->
     <div class="relative flex justify-center md:justify-end" data-aos="fade-left">
-      <img 
-        src="images/Africa_images/DSCF0678.JPG" 
-        alt="Energy Policy & Finance" 
-        class="w-full md:w-[90%] h-[520px] md:h-[560px] object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500"
-      >
+      <div class="relative w-full md:w-[90%] h-[560px]">
+        <img 
+          src="images/Africa_images/DSCF0678.JPG" 
+          alt="Energy Policy & Finance" 
+          class="absolute bottom-0 w-full h-full object-cover rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500"
+        >
+      </div>
     </div>
 
   </div>
@@ -670,17 +666,28 @@
 
 <!-- -----------------------  BLOCK 6 : GALLERY  ------------------------------- -->
 
+
+
 <section id="gallery" class="bg-gray-800 py-20 px-6">
   <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
     
+    <!-- Image on the left -->
+    <div data-aos="fade-left" data-aos-delay="200" class="relative">
+      <img 
+        src="images/Africa_images/IMG_3084.jpeg" 
+        alt="Field work and team"
+        class="w-full rounded-lg shadow-lg object-cover h-[480px]"
+      >
+    </div>
+
     <!-- Text on the right -->
     <div data-aos="fade-right">
       <h2 class="text-4xl mb-6" style="color: rgb(81, 230, 0);">
         Gallery
       </h2>
       <p class="text-gray-200 leading-relaxed mb-6">
-        My projects have taken me across Africa, connecting with communities and exploring unique environments. 
-        Here are some of my favorite moments captured along the way—take a glimpse into the journey and the people behind the energy transition.
+        Throughout our projects across Africa, we encounter inspiring communities and breathtaking landscapes. 
+        Each image captures the people, places, and moments that make the energy transition meaningful and impactful.
       </p>
 
       <!-- View Gallery Button -->
@@ -693,32 +700,8 @@
       </a>
     </div>
 
-    <!-- Rotating Image on the left -->
-    <div data-aos="fade-left" data-aos-delay="200" class="relative">
-      <img id="gallery-image" src="images/Africa_images/IMG_3084.jpeg" alt="Field work and team"
-           class="w-full rounded-lg shadow-lg object-cover h-[480px]">
-    </div>
-
   </div>
 </section>
-
-<script>
-  // Array of gallery images
-  const galleryImages = [
-    "images/Africa_images/IMG_3084.jpeg",
-    "images/Africa_images/IMG_4437.jpeg",
-    "images/Africa_images/DSCF0678.JPG",
-    "images/Africa_images/girl.png"
-  ];
-
-  let currentIndex = 0;
-  const galleryImgElement = document.getElementById('gallery-image');
-
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    galleryImgElement.src = galleryImages[currentIndex];
-  }, 5000); // Change every 5 seconds
-</script>
 
 
   <!-- <section id="gallery" class="container mx-auto py-20 px-6">
