@@ -760,7 +760,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
       <!-- Message Form -->
-      <div class="bg-gray-800 bg-opacity-90 p-8 rounded-3xl shadow-2xl" data-aos="fade-right">
+      <div id="message-us-box" class="bg-gray-800 bg-opacity-90 p-8 rounded-3xl shadow-2xl" data-aos="fade-right">
         <h3 class="text-2xl font-semibold mb-6 text-green-400">Message Us</h3>
         <form class="space-y-6">
           <div class="relative">
@@ -775,8 +775,9 @@
             <textarea id="message" rows="5" class="peer w-full border-b-2 border-gray-700 bg-transparent py-3 text-gray-200 focus:border-green-400 outline-none" placeholder=" " required></textarea>
             <label for="message" class="absolute left-0 top-3 text-gray-400 peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:text-green-400 text-sm transition-all">Your Message</label>
           </div>
-          <button type="submit" class="w-full py-3 rounded-lg font-semibold text-gray-900 transition transform hover:scale-105 shadow-lg" style="background-color: rgb(81,230,0);" 
-                  onmouseover="this.style.backgroundColor='rgb(44,236,255)'" 
+          <button type="submit" class="w-full py-3 rounded-lg font-semibold text-gray-900 transition transform hover:scale-105 shadow-lg"
+                  style="background-color: rgb(81,230,0);"
+                  onmouseover="this.style.backgroundColor='rgb(44,236,255)'"
                   onmouseout="this.style.backgroundColor='rgb(81,230,0)'">
             Send Message
           </button>
@@ -788,11 +789,20 @@
         <div>
           <h3 class="text-2xl font-semibold mb-6 text-green-400">Contact Details</h3>
           <p class="mb-4">We’re available for professional inquiries and project discussions.</p>
-          <p><strong>Email:</strong> <a href="mailto:timon@rowntree.nl" class="text-green-400 hover:underline">email@sunnysideenergy.eu</a></p>
-          <p class="mt-4"><strong>Address:</strong><br>Some address<br>In a town<br>Zuid-Holland<br>The Netherlands</p>
+          <p><strong>Email:</strong>
+            <a href="mailto:timon@rowntree.nl" class="text-green-400 hover:underline">
+              email@sunnysideenergy.eu
+            </a>
+          </p>
+          <p class="mt-4">
+            <strong>Address:</strong><br>
+            Some address<br>
+            In a town<br>
+            Zuid-Holland<br>
+            The Netherlands
+          </p>
         </div>
 
-        <!-- WhatsApp / LinkedIn icons under contact details -->
         <div class="mt-6 space-y-4">
           <p><strong>Connect via WhatsApp or LinkedIn</strong></p>
           <div class="flex space-x-4">
@@ -814,6 +824,65 @@
     </div>
   </div>
 </section>
+
+<!-- Sketch line + scroll logic -->
+<svg id="sketch-line" class="fixed top-0 left-0 w-full h-full pointer-events-none hidden" xmlns="http://www.w3.org/2000/svg">
+  <path id="sketch-path"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="8 6" />
+</svg>
+
+<script>
+function drawLine(sourceEl) {
+  const targetEl = document.getElementById("message-us-box");
+  const svg = document.getElementById("sketch-line");
+  const path = document.getElementById("sketch-path");
+
+  const offset = 120;
+  const targetY =
+    targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: targetY,
+    behavior: "smooth"
+  });
+
+  const s = sourceEl.getBoundingClientRect();
+  const t = targetEl.getBoundingClientRect();
+
+  const x1 = s.left + s.width / 2;
+  const y1 = s.bottom;
+  const x2 = t.left + t.width / 2;
+  const y2 = t.top;
+
+  const curve = 80;
+
+  const d = `
+    M ${x1} ${y1}
+    C ${x1} ${y1 + curve},
+      ${x2} ${y2 - curve},
+      ${x2} ${y2}
+  `;
+
+  path.setAttribute("d", d);
+
+  svg.classList.remove("hidden");
+  path.style.strokeDashoffset = 600;
+  path.style.transition = "stroke-dashoffset 0.6s ease-out";
+
+  requestAnimationFrame(() => {
+    path.style.strokeDashoffset = "0";
+  });
+
+  setTimeout(() => {
+    svg.classList.add("hidden");
+  }, 1500);
+}
+</script>
+
 
 <!-- -----------------------  BLOCK 8 : WEBSITE FOOTER  ------------------------------- -->
 
