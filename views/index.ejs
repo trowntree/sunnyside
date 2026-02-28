@@ -734,21 +734,21 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12" data-aos="fade-up">
 
-      <div onclick="drawLine(this)" class="cursor-pointer bg-gray-800 bg-opacity-90 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition">
+      <div onclick="scrollToMessageBox()" class="cursor-pointer bg-gray-800 bg-opacity-90 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition">
         <h3 class="text-xl font-semibold text-green-400 mb-3">Join the team?</h3>
         <p class="text-base text-white">
           Get in touch to discuss open vacancies.
         </p>
       </div>
 
-      <div onclick="drawLine(this)" class="cursor-pointer bg-gray-800 bg-opacity-90 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition">
+      <div onclick="scrollToMessageBox()" class="cursor-pointer bg-gray-800 bg-opacity-90 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition">
         <h3 class="text-xl font-semibold text-green-400 mb-3">Collaborate on a project?</h3>
         <p class="text-base text-white">
           Talk to us about going for new business opportunities together.
         </p>
       </div>
 
-      <div onclick="drawLine(this)" class="cursor-pointer bg-gray-800 bg-opacity-90 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition">
+      <div onclick="scrollToMessageBox()" class="cursor-pointer bg-gray-800 bg-opacity-90 p-6 rounded-2xl shadow-lg hover:-translate-y-1 transition">
         <h3 class="text-xl font-semibold text-green-400 mb-3">Just looking to chat?</h3>
         <p class="text-base text-white">
           Schedule a conversation with us.
@@ -825,61 +825,16 @@
   </div>
 </section>
 
-<!-- Sketch line + scroll logic -->
-<svg id="sketch-line" class="fixed top-0 left-0 w-full h-full pointer-events-none hidden" xmlns="http://www.w3.org/2000/svg">
-  <path id="sketch-path"
-        fill="none"
-        stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-dasharray="8 6" />
-</svg>
-
 <script>
-function drawLine(sourceEl) {
+function scrollToMessageBox() {
   const targetEl = document.getElementById("message-us-box");
-  const svg = document.getElementById("sketch-line");
-  const path = document.getElementById("sketch-path");
-
-  const offset = 120;
-  const targetY =
-    targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+  const offset = 120; // scroll slightly above the box
+  const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
 
   window.scrollTo({
     top: targetY,
     behavior: "smooth"
   });
-
-  const s = sourceEl.getBoundingClientRect();
-  const t = targetEl.getBoundingClientRect();
-
-  const x1 = s.left + s.width / 2;
-  const y1 = s.bottom;
-  const x2 = t.left + t.width / 2;
-  const y2 = t.top;
-
-  const curve = 80;
-
-  const d = `
-    M ${x1} ${y1}
-    C ${x1} ${y1 + curve},
-      ${x2} ${y2 - curve},
-      ${x2} ${y2}
-  `;
-
-  path.setAttribute("d", d);
-
-  svg.classList.remove("hidden");
-  path.style.strokeDashoffset = 600;
-  path.style.transition = "stroke-dashoffset 0.6s ease-out";
-
-  requestAnimationFrame(() => {
-    path.style.strokeDashoffset = "0";
-  });
-
-  setTimeout(() => {
-    svg.classList.add("hidden");
-  }, 1500);
 }
 </script>
 
